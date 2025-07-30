@@ -17,7 +17,7 @@
   <body>
     <%- include("partials/Header.ejs") %>
     <section id="introduction">
-      <div class="px-4 py-5 my-5 text-center">
+      <div class="px-4 py-2 my-2 text-center">
         <img
           class="d-block mx-auto mb-1"
           src="./images/AB_Film_Reviews.png"
@@ -25,16 +25,16 @@
           width="15%"
           height="15%"
         />
-        <h1 class="display-5 fw-bold text-body-emphasis">AB's Film Reviews</h1>
+        <h1 class="display-4 fw-bold text-body-emphasis">AB's Film Reviews</h1>
         <div class="col-lg-6 mx-auto">
           <p class="lead mb-4">
             This is my first website and I decided to make it about my passion
-            which is films, so this well be a collection of all my film reviews.
+            which is films, so this will be a collection of all my film reviews.
           </p>
-          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <form action="/reviews" method="post">
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-3">
+            <form action="/four" method="get">
               <button type="reviews" class="btn btn-primary btn-lg px-4 gap-3">
-                Reviews
+                Four Favorites
               </button>
             </form>
           </div>
@@ -58,9 +58,9 @@
                 <p class="card-text mb-auto">
                   This is probably the longest review I've ever wrote, and it's because I had so much to talk about after I finished.
                 </p>
-                <form action="/500days" method="post">
+                <form action="/500days" method="get">
                 <a
-                  href="500days"
+                  href="/500days"
                   class="icon-link gap-1 icon-link-hover stretched-link"
                 >
                   Continue reading
@@ -93,13 +93,12 @@
             >
               <div class="col p-4 d-flex flex-column position-static">
                 <strong class="d-inline-block mb-2 text-success-emphasis"
-                  >Design</strong
+                  >Featured Review</strong
                 >
-                <h3 class="mb-0">Post title</h3>
-                <div class="mb-1 text-body-secondary">Nov 11</div>
+                <h3 class="mb-0">Aftersun</h3>
+                <div class="mb-1 text-body-secondary">9/10 Rating</div>
                 <p class="mb-auto">
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content.
+                    This is a review of a rewatch I did of the film aftersun, where my rating went up by 2 after watching it knowing the whole plot of the film.
                 </p>
                 <form action="/aftersun" method="post">
                 <a
@@ -135,5 +134,7 @@
         </div>
       </div>
     </section>
+        <%- include("partials/Footer.ejs") %>
+
   </body>
 </html>

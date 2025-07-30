@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <%- include("partials/Header.ejs") %>
+    <section id="Four">
+      <div class="px-4 pt-5 my-5 text-center border-bottom">
+        <h1 class="display-4 fw-bold text-body-emphasis">Four Favorites</h1>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4">
+            These are my four favorite films (at the moment), and if you see
+            it's kind of split into to two genres. On one side there's Se7en and
+            Oldboy which are mainly thriller. On the other hand there's The
+            Notebook and Past Lives which are primarily romance.
+          </p>
+          <div
+            class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"
+          ></div>
+        </div>
+        <div class="overflow-hidden" style="max-height: 100%">
+          <div class="container px-5 mb-5">
+            <div class="container px-5 mb-5">
+                <div class="row gx-3 justify-content-center">
+                    <div class="col-lg-3 col-md-6 col-6 mb-4 text-center">
+                    <img src="./images/TheNotebookClean.jpg" 
+                        class="img-fluid rounded-4 shadow-lg h-100" 
+                        alt="The Notebook"
+                        style="max-height: 500px; object-fit: cover;">
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-6 mb-4 text-center">
+                    <img src="./images/PastLiveClean.jpg" 
+                        class="img-fluid rounded-4 shadow-lg h-100" 
+                        alt="Past Lives"
+                        style="max-height: 500px; object-fit: cover;">
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-6 mb-4 text-center">
+                    <img src="./images/Se7en.jpg" 
+                        class="img-fluid rounded-4 shadow-lg h-100" 
+                        alt="Se7en"
+                        style="max-height: 500px; object-fit: cover;">
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-6 mb-4 text-center">
+                    <img src="./images/Oldboy.jpg" 
+                        class="img-fluid rounded-4 shadow-lg h-100" 
+                        alt="Oldboy"
+                        style="max-height: 500px; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </section>
+    <%- include("partials/Footer.ejs") %>
+  </body>
+</html>

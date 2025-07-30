@@ -1,4 +1,3 @@
-<%- include("partials/Header.ejs") %>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
   <head>
@@ -16,6 +15,7 @@
     />
   </head>
   <body>
+    <%- include("partials/Header.ejs") %>
     <section id="Reviews">
       <div class="container col-xxl-8 px-4 py-5">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
@@ -33,6 +33,9 @@
             <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
               My Favorite Film
             </h1>
+            <h3>
+                The Notebook
+            </h3>
             <p class="lead">
               I've never wrote a full review about this film, and I think it's
               because what I feel watching it I can never put into words. I've
@@ -41,51 +44,15 @@
               my favorite film of all time.
             </p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-              <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">
-                The Review
-              </button>
+              
             </div>
           </div>
         </div>
       </div>
     </section>
-    <section id="Four">
-      <div class="px-4 pt-5 my-5 text-center border-bottom">
-        <h1 class="display-4 fw-bold text-body-emphasis">
-          Centered screenshot
-        </h1>
-        <div class="col-lg-6 mx-auto">
-          <p class="lead mb-4">
-            Quickly design and customize responsive mobile-first sites with
-            Bootstrap, the world’s most popular front-end open source toolkit,
-            featuring Sass variables and mixins, responsive grid system,
-            extensive prebuilt components, and powerful JavaScript plugins.
-          </p>
-          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-            <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">
-              The Reviews
-            </button>
-            
-          </div>
-        </div>
-        <div class="overflow-hidden" style="max-height: 30vh">
-          <div class="container px-5 mb-3">
-            <img
-              src="./images/Four_Favorites.png"
-              class="img-fluid border rounded-3 shadow-lg mb-4"
-              alt="Example image"
-              width="700"
-              height="500"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
+    
     <section>
-        <div>
-
-        </div>
+    <%- include("partials/Footer.ejs") %>
     </section>
   </body>
 </html>
