@@ -21,6 +21,22 @@ app.get("/aftersun", (req,res) =>{
     res.render("aftersun.ejs");
 });
 
+app.get("/theNotebook", (req,res) =>{
+    res.render("theNotebook.ejs");
+});
+
+app.get("/pastLives", (req,res) =>{
+    res.render("pastLives.ejs");
+});
+
+app.get("/se7en", (req,res) =>{
+    res.render("se7en.ejs");
+});
+
+app.get("/oldboy", (req,res) =>{
+    res.render("oldboy.ejs");
+});
+
 app.get("/four", (req,res) =>{
     res.render("four.ejs");
 });
