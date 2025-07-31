@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <%- include("partials/Header.ejs") %>
+    <section id="Reviews">
+      <div class="container col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+          <div class="col-10 col-sm-8 col-lg-6">
+            <img
+              src="./images/meow1.jpg"
+              class="d-block mx-lg-auto img-fluid"
+              alt="Bootstrap Themes"
+              width="700"
+              height="500"
+              loading="lazy"
+            />
+          </div>
+          <div class="col-lg-6">
+            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
+              My Favorite Film
+            </h1>
+            <h3>
+                The Notebook
+            </h3>
+            <p class="lead">
+              I've never wrote a full review about this film, and I think it's
+              because what I feel watching it I can never put into words. I've
+              thought about the subject of my favorite film a lot, and it
+              becomes clearer with every rewatch that The Notebook is undoubtly
+              my favorite film of all time.
+            </p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section>
+    <%- include("partials/Footer.ejs") %>
+    </section>
+  </body>
+</html>

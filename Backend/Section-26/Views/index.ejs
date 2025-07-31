@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Film Reviews</title>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <%- include("partials/Header.ejs") %>
+    <section id="introduction">
+      <div class="px-4 py-2 my-2 text-center">
+        <img
+          class="d-block mx-auto mb-1"
+          src="./images/AB_Film_Reviews.png"
+          alt="AB_Film_Reviews"
+          width="15%"
+          height="15%"
+        />
+        <h1 class="display-4 fw-bold text-body-emphasis">AB's Film Reviews</h1>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4">
+            This is my first website and I decided to make it about my passion
+            which is films, so this will be a collection of all my film reviews.
+          </p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-3">
+            <form action="/four" method="get">
+              <button type="reviews" class="btn btn-primary btn-lg px-4 gap-3">
+                Four Favorites
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="Featured Reviews">
+      <div class="container">
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <div
+              class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+            >
+              <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-primary-emphasis"
+                  >Featured Review</strong
+                >
+                <h3 class="mb-0">500 Days of Summer</h3>
+                <div class="mb-1 text-body-secondary"> 9/10 Rating </div>
+                <p class="card-text mb-auto">
+                  This is probably the longest review I've ever wrote, and it's because I had so much to talk about after I finished.
+                </p>
+                <form action="/500days" method="get">
+                <a
+                  href="/500days"
+                  class="icon-link gap-1 icon-link-hover stretched-link"
+                >
+                  Continue reading
+                  <svg class="bi" aria-hidden="true">
+                    <use xlink:href="#chevron-right"></use>
+                  </svg>
+                </a>
+                </form>
+              </div>
+              <div class="col-auto d-none d-lg-block">
+                <img
+                src="./images/500_daysofsummer.jpg"
+                  aria-label="Placeholder: Thumbnail"
+                  class="bd-placeholder-img"
+                  height="250"
+                  preserveAspectRatio="xMidYMid slice"
+                  role="img"
+                  width="200"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title>Placeholder</title>
+                  <rect width="100%" height="100%" fill="#55595c"></rect>
+              </img>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div
+              class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+            >
+              <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-success-emphasis"
+                  >Featured Review</strong
+                >
+                <h3 class="mb-0">Aftersun</h3>
+                <div class="mb-1 text-body-secondary">9/10 Rating</div>
+                <p class="mb-auto">
+                    This is a review of a rewatch I did of the film aftersun, where my rating went up by 2 after watching it knowing the whole plot of the film.
+                </p>
+                <form action="/aftersun" method="post">
+                <a
+                  
+                  href="aftersun"
+                  class="icon-link gap-1 icon-link-hover stretched-link"
+                >
+                  Continue reading
+                  <svg class="bi" aria-hidden="true">
+                    <use xlink:href="#chevron-right"></use>
+                  </svg>
+                </a>
+                </form>
+              </div>
+              <div class="col-auto d-none d-lg-block">
+                <img
+                  src="./images/Aftersun.jpg"
+                  aria-label="Placeholder: Thumbnail"
+                  class="bd-placeholder-img"
+                  height="250"
+                  preserveAspectRatio="xMidYMid slice"
+                  role="img"
+                  width="200"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title>Placeholder</title>
+                  <rect width="100%" height="100%" fill="#55595c"></rect>
+                  
+                </img>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+        <%- include("partials/Footer.ejs") %>
+
+  </body>
+</html>
