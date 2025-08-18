@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lisper — الطاولة</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Titan+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/main.css" />
+    <style>
+      .video-bg { 
+        position: fixed; 
+        inset: 0; 
+        width: 100%; 
+        height: 100%; 
+        object-fit: cover; 
+        z-index: -1; 
+        opacity: 0.7;
+      }
+      .overlay { 
+        position: relative; 
+        z-index: 1;
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      }
+      
+      .hint {
+        font-size: 1.2rem;
+        color: #e2e8f0;
+        margin-bottom: 2rem;
+      }
+      
+      .table-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 25px;
+        margin: 40px 0;
+      }
+      
+      .table-card {
+        background: rgba(30, 41, 59, 0.8);
+        border-radius: 15px;
+        padding: 20px;
+        text-align: center;
+        transition: transform 0.3s ease;
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+      }
+      
+      .table-card:hover {
+        transform: translateY(-5px);
+      }
+      
+      .table-card-face {
+        font-size: 5rem;
+        margin-bottom: 15px;
+        color: #f8fafc;
+      }
+      
+      .table-card-name {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #fff;
+        font-family: 'Titan One', cursive;
+        word-break: break-word;
+      }
+      
+      .btn {
+        font-size: 1.2rem;
+        padding: 12px 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Background video -->
+    <video autoplay muted loop class="video-bg">
+      <source src="/videos/Space Flight Galaxy Background.mp4" type="video/mp4" />
+    </video>
+
+    <div class="overlay">
+      <h1>الطاولة — كل البطاقات مقلوبة 🎴</h1>
+      <p class="hint">بعد ما شاف الكل دوره، هذه الطاولة قدامكم. اضغطوا بدء للتسلسل.</p>
+
+      <div class="table-grid">
+        <% assignments.forEach(a => { %>
+          <div class="table-card" title="بطاقة <%= a.name %>">
+            <div class="table-card-face">🎴</div>
+            <div class="table-card-name"><%= a.name %></div>
+          </div>
+        <% }) %>
+      </div>
+
+      <div style="display: flex; gap: 15px; justify-content: center;">
+        <form action="/night" method="GET">
+          <button class="btn">ابدأ تسلسل "الليله الأولى"</button>
+        </form>
+
+        <form action="/reset" method="POST">
+          <button class="btn secondary">إعادة من البداية</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

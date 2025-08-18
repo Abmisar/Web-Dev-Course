@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lisper — غمّضوا العيون</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Titan+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/main.css" />
+    <style>
+      .night-box { 
+        max-width: 820px; 
+        margin: 0 auto; 
+        text-align: center; 
+        background: rgba(15, 23, 42, 0.9);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+      }
+      .step { 
+        font-size: 1.8rem; 
+        color: #fff; 
+        margin: 20px 0 30px;
+        min-height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .role-card {
+        background: #1e293b;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 500px;
+        font-size: 1.5rem;
+        color: #fff;
+        display: none;
+      }
+      .criminal-card {
+        border: 2px solid #ef4444;
+      }
+      .doctor-card {
+        border: 2px solid #22d3ee;
+      }
+      .police-card {
+        border: 2px solid #a78bfa;
+      }
+      .citizen-card {
+        border: 2px solid #4ade80;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="night-box">
+      <h1>تسلسل "غمّض العيون" 🌙</h1>
+      <div id="step" class="step"></div>
+      
+      <!-- بطاقات الأدوار -->
+      <div id="criminalCard" class="role-card criminal-card"></div>
+      <div id="doctorCard" class="role-card doctor-card"></div>
+      <div id="policeCard" class="role-card police-card"></div>
+      <div id="citizenCard" class="role-card citizen-card"></div>
+
+      <button id="next" class="btn" style="margin-top: 20px;">التالي</button>
+    </div>
+
+    <script>
+      // تحديات الأدوار
+      const roleChallenges = {
+        criminal: [
+          "يلمس كتف الي جنبه",
+          "يتمغط بطريقة مبالغ فيها",
+          "يرمي ذبابة وهمية"
+        ],
+        doctor: [
+          "اختر شخصاً لإنقاذه بإشارة",
+          "أشر إلى شخص تعتقد أنه بحاجة للعلاج"
+        ],
+        police: [
+          "اسأل عن هوية شخص بإشارة (نعم/لا)",
+          "أشر إلى شخص تعتقد أنه المجرم"
+        ],
+        citizen: [
+          "تكلم بالإنجليزية فقط",
+          "تكلم بدون ما تفتح فمك",
+          "تكلم بدون ما يشوفك الآخرون",
+          "تكلم بدون ما تتحرك (بدون تحريك رأسك)",
+          "تكلم وأنت مقفل خشمك"
+        ]
+      };
+
+      const sequence = [
+        { key: "all", text: "الكل يغمّض عيونه الآن." },
+        { key: "criminal", text: "المجرم يفتح عينه..." },
+        { key: "doctor", text: "الطبيب يفتح عينه..." },
+        { key: "police", text: "الشرطي يفتح عينه..." },
+        { key: "done", text: "انتهى الليل. افتحوا عيونكم!" }
+      ];
+
+      let currentStep = 0;
+      const stepEl = document.getElementById('step');
+      const nextBtn = document.getElementById('next');
+      const roleCards = {
+        criminal: document.getElementById('criminalCard'),
+        doctor: document.getElementById('doctorCard'),
+        police: document.getElementById('policeCard'),
+        citizen: document.getElementById('citizenCard')
+      };
+
+      function getRandomChallenge(role) {
+        const challenges = roleChallenges[role];
+        return challenges[Math.floor(Math.random() * challenges.length)];
+      }
+
+      function showRoleCard(role) {
+        // إخفاء كل البطاقات أولاً
+        Object.values(roleCards).forEach(card => card.style.display = 'none');
+        
+        if (role) {
+          roleCards[role].style.display = 'block';
+          roleCards[role].textContent = `🎭 ${getRandomChallenge(role)}`;
+        }
+      }
+
+      function updateStep() {
+        const step = sequence[currentStep];
+        stepEl.textContent = step.text;
+        
+        // إظهار بطاقة التحدي المناسبة
+        if (step.key === "criminal") showRoleCard("criminal");
+        else if (step.key === "doctor") showRoleCard("doctor");
+        else if (step.key === "police") showRoleCard("police");
+        else showRoleCard(null);
+      }
+
+      nextBtn.addEventListener('click', () => {
+        if (currentStep < sequence.length - 1) {
+          currentStep++;
+          updateStep();
+        } else {
+          window.location.href = '/day';
+        }
+      });
+
+      // بدء التسلسل
+      updateStep();
+    </script>
+  </body>
+</html>

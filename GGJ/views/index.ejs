@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ليلتين فالفضاء</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Titan+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/main.css" />
+    <style>
+      .video-bg { 
+        position: fixed; 
+        inset: 0; 
+        width: 100%; 
+        height: 100%; 
+        object-fit: cover; 
+        z-index: -1; 
+      }
+      .overlay  { 
+        position: relative; 
+        z-index: 1; 
+      }
+      #unmuteBtn {
+        margin-top: 10px;
+        display: block; /* Always show button in this version */
+      }
+    </style>
+  </head>
+  <body>
+    <video autoplay muted loop class="video-bg">
+      <source src="/videos/Space Flight Galaxy Background.mp4" type="video/mp4" />
+    </video>
+
+    <!-- Single Audio Element -->
+    <audio id="bgMusic" loop>
+      <source src="/audio/back.mp3" type="audio/mpeg">
+      Your browser does not support audio element.
+    </audio>
+
+    <div class="overlay">
+      <h1>ليلتين فالفضاء</h1>
+
+      <% if (error) { %>
+        <p class="error"><%= error %></p>
+      <% } %>
+
+      <form action="/setup" method="POST" class="form">
+        <label for="players">أكتب كل اسم في سطر (أو مفصول بفاصلة):</label>
+        <textarea id="players" name="players" rows="8" placeholder="أحمد\nنورة\nسارة\n..."><%= playersInput %></textarea>
+        <button type="submit" class="btn">ابدأ توزيع الأدوار</button>
+        <button id="unmuteBtn" class="btn" onclick="unmuteAudio()">
+          🔊 اضغط لسماع القصة
+        </button>
+      </form>
+    </div>
+
+    <script>
+      // Initialize audio
+      const audio = document.getElementById('bgMusic');
+      audio.volume = 0.3;
+      
+      // Unmute function
+      function unmuteAudio() {
+        audio.play()
+          .then(() => {
+            console.log("Audio started successfully");
+            document.getElementById('unmuteBtn').textContent = "🔊 الصوت يعمل";
+          })
+          .catch(error => {
+            console.error("Audio play failed:", error);
+            document.getElementById('unmuteBtn').textContent = "❌ فشل التشغيل - اضغط مجدداً";
+          });
+      }
+      
+      // Optional: Try autoplay on page load (may still fail due to browser restrictions)
+      window.addEventListener('load', () => {
+        audio.play().catch(e => {
+          console.log("Autoplay blocked, waiting for button click");
+        });
+      });
+    </script>
+  </body>
+</html>

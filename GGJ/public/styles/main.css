@@ -1,0 +1,145 @@
+:root {
+  --card-height: 65vh;
+  --card-width: calc(var(--card-height) / 1.5);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  background: #212534;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem 1rem;
+}
+
+h1 {
+  color: white;
+  font-family: "Titan One", cursive;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form {
+  display: grid;
+  gap: 0.75rem;
+  width: min(680px, 100%);
+}
+
+label { color: #cbd5e1; font-family: system-ui, sans-serif; }
+
+textarea {
+  width: 100%;
+  border-radius: 12px;
+  padding: 12px;
+  border: 1px solid #334155;
+  background: #0f172a;
+  color: #e2e8f0;
+  font-size: 16px;
+}
+
+.btn {
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(90deg, #5ddcff, #3c67e3 43%, #4e00c2);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn.secondary { background: #475569; }
+
+.error { color: #ff6b6b; margin-bottom: 10px; }
+
+.progress { color: #94a3b8; margin-bottom: 10px; }
+
+.name{
+  font-size: large;
+  font-weight: bold;
+  color: white;
+}
+
+.card {
+  background: url("../images/whisper-img.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: var(--card-width);
+  height: var(--card-height);
+  padding: 3px;
+  position: relative;
+  border-radius: 6px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  font-size: 1.8em;
+  color: rgb(88 199 250 / 0%);
+  font-family: "Gloria Hallelujah", cursive;
+}
+
+.card:hover, .card:active {
+  color: rgb(88 199 250 / 100%);
+  transition: color 0.6s;
+}
+
+.card:hover:before,
+.card:hover:after,
+.card:active:before,
+.card:active:after {
+  animation: none;
+  opacity: 0;
+}
+
+.card::before {
+  content: "";
+  width: 104%;
+  height: 102%;
+  border-radius: 8px;
+  background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
+  position: absolute;
+  z-index: -1;
+  top: -1%;
+  left: -2%;
+  animation: spin 2.5s linear infinite;
+}
+
+.card::after {
+  position: absolute;
+  content: "";
+  top: calc(var(--card-height) / 6);
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  transform: scale(0.8);
+  filter: blur(calc(var(--card-height) / 6));
+  background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
+  opacity: 1;
+  transition: opacity 0.5s;
+  animation: spin 2.5s linear infinite;
+}
+
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
+
+@keyframes spin {
+  0% { --rotate: 0deg; }
+  100% { --rotate: 360deg; }
+}
+
+.user {
+  color: white;
+  font-size: 24px;
+  font-family: "Titan One", cursive;
+  margin: 12px 0 18px;
+}
+
+.hint { color: #cbd5e1; }
