@@ -2,8 +2,28 @@
 // 1. Import express and axios
 import express from "express";
 import axios from "axios";
-import fileURLToPath from "url"
-import path from "path";
+var cards = [
+    {
+        id: 1,
+        cardText: "المجرم",
+    },
+    {
+        id: 2,
+        cardText: "مواطن",
+        },
+    {
+        id: 3,
+        cardText: "مواطن",
+    },
+    {
+        id: 4,
+        cardText: "مواطن",
+    },
+    {
+        id: 5,
+        cardText: "طبيب",
+    }
+]
 // 2. Create an express app and set the port number.
 const app = express();
 const port = 3000;
